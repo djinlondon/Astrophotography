@@ -275,7 +275,8 @@ def build() -> int:
     # Sort by date (newest first unless site.txt says "Order: oldest first");
     # featured photos always go to the top.
     oldest_first = "oldest" in site.get("order", "").lower()
-    photos.sort(key=lambda p: p["date"] or "0000", reverse=not oldest_first)
+    dated = sorted((p for p in photos if p["date"]), key=lambda p: p["date"], reverse=not oldest_first)
+    photos = dated + [p for p in photos if not p["date"]]  # photos with no date go at the end
     photos.sort(key=lambda p: not p["featured"])
 
     banner = ""

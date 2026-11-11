@@ -68,8 +68,8 @@ in the core, but I love how much of the outer dust came through.
 ```
 
 - **Title**: if you leave it out, the file name is used (`orion-nebula` → "Orion nebula").
-- **Date**: `YYYY-MM-DD` (you can add a time, e.g. `2023-03-20 16:20`). Photos are sorted
-  by date, in the order set in `site.txt`. If you leave it out, the date
+- **Date**: `YYYY-MM-DD` (you can add a time, e.g. `2023-03-20 16:20`). It isn't shown on the
+  site; it only decides the order (set in `site.txt`). Photos without a date go at the end. If you leave it out, the date
   saved in the image by your camera is used, if there is one.
 - **Category**: anything you like, e.g. Nebula, Galaxy, Planet, Moon, Sun, Milky Way,
   Star Cluster. Filter buttons appear automatically.

@@ -15,7 +15,6 @@
     return s;
   };
   const PAGE_ICON = '<path d="M4 1.5h5.5L13 5v9.5H4z"/><path d="M9.5 1.5V5H13M6 8h5M6 10.5h5"/>';
-  const CLOCK_ICON = '<circle cx="8" cy="8" r="6.2"/><path d="M8 4.5V8l2.5 1.5"/>';
   const TAGS_ICON = '<circle cx="8" cy="8" r="6.2"/><path d="M5.5 8h5M8 5.5v5"/>';
 
   // ---------- page header ----------
@@ -58,13 +57,6 @@
   for (const c of categories) colour[c] = fixed[c.toLowerCase()] || palette[next++ % palette.length];
   const tag = (c) => { const t = el("span", "tag", c); t.dataset.c = colour[c]; return t; };
 
-  const fmtDate = (d) => {
-    const m = /^(\d{4})-(\d{2})(?:-(\d{2}))?/.exec(d || "");
-    if (!m) return d || "";
-    const date = new Date(+m[1], +m[2] - 1, +(m[3] || 1));
-    return date.toLocaleDateString(undefined, m[3] ? { year: "numeric", month: "long", day: "numeric" } : { year: "numeric", month: "long" });
-  };
-
   // ---------- gallery ----------
   let active = "All";
   let visible = photos;
@@ -101,7 +93,6 @@
       const title = el("div", "card-title");
       title.append(svg(PAGE_ICON), el("span", null, p.title));
       body.append(title);
-      if (p.date) body.append(el("div", "card-date", fmtDate(p.date)));
       if (p.category) body.append(tag(p.category));
       card.append(prev, body);
       card.onclick = () => openPhoto(i);
@@ -126,7 +117,6 @@
       const v = el("div", "v"); typeof value === "string" ? (v.textContent = value) : v.append(value);
       props.append(k, v);
     };
-    if (p.date) row(CLOCK_ICON, "Date", fmtDate(p.date));
     if (p.category) row(TAGS_ICON, "Tags", tag(p.category));
     for (const [k, v] of p.details) row(TAGS_ICON, k, v);
 

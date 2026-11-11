@@ -1,0 +1,7 @@
+Title: Andromeda Galaxy (Sample)
+Date: 2025-10-21
+Category: Galaxy
+Telescope: 72mm refractor
+Integration: 3h 10m
+
+A placeholder image. Our nearest large galactic neighbour, 2.5 million light years away.

@@ -1,0 +1,16 @@
+# Site settings. Change anything after the colon, then click "Commit changes".
+# Lines starting with # are notes to you and are ignored.
+
+Site title: Light From Far Away
+Tagline: Photographs of the night sky, taken from my backyard and beyond
+Your name: Your Name
+Based in: Your Town
+Contact: you@example.com
+Instagram:
+AstroBin:
+Allow downloads: yes
+
+Write a few sentences about yourself here: how you got into astrophotography,
+what gear you use, where you shoot. Leave a blank line between paragraphs.
+
+Thanks for stopping by. Clear skies!

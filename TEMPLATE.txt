@@ -1,0 +1,20 @@
+# Copy this file into the photos folder and give it the SAME name as the photo,
+# e.g.  photos/orion-nebula.jpg  ->  photos/orion-nebula.txt
+# Fill in what you like. Blank lines are skipped, and you can add your own
+# lines too (anything shaped like "Something: value" becomes a detail row).
+# Everything after the first blank line below the details is the description.
+
+Title: Orion Nebula (M42)
+Date: 2026-01-15
+Category: Nebula
+Featured: no
+Telescope:
+Camera:
+Mount:
+Filters:
+Integration:
+Location:
+Processing:
+
+Write a short story about this photo here: the night, the challenges,
+what you're seeing in the image.

@@ -1,0 +1,5 @@
+Title: Cone Nebula
+Date: 2023-07-24 11:41
+Category: Nebula
+
+This is the Cone Nebula, taken from Telescope.Live data using the Planewave 24” in Chile, with the new CMOS Sensor.  This is a NarrowBand image.

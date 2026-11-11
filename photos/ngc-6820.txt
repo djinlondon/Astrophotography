@@ -1,0 +1,5 @@
+Title: NGC 6820
+Date: 2023-03-01 20:04
+Category: Nebula
+
+This is the emission nebula NGC 6820 surrounding the open star cluster NGC 6823. About 6000 light years away in our own galaxy. The data is from Telescope.live using the Officina Stellare 70cm Telescope in Spain. The processing is by me using Pixinsight, Topaz AI, and LOTS of photoshop. The dark finger like structures are characteristic of star forming regions.

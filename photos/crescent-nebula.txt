@@ -1,0 +1,5 @@
+Title: Crescent Nebula
+Date: 2023-07-25 14:14
+Category: Nebula
+
+Crescent Nebula, taken with Telescope.Live data from Spain, with the 70cm Officina Stellare ProRC 700.   Narrow Band imaging, processed in Pixinsight, Photoshop, and Topaz Sharpen AI

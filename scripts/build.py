@@ -41,7 +41,7 @@ DISPLAY_SIZE = 2560
 
 # Keys in the .txt files that the site treats specially. Every other
 # "Key: value" line is shown as a row in the photo's details panel.
-SPECIAL_KEYS = {"title", "date", "category", "featured", "hidden"}
+SPECIAL_KEYS = {"title", "date", "category", "featured", "hidden", "more photos"}
 
 
 # ---------------------------------------------------------------- text files
@@ -194,6 +194,16 @@ def build() -> int:
     problems = 0
     files = sorted(p for p in PHOTOS.rglob("*") if p.suffix.lower() in IMAGE_EXT and not p.name.startswith("."))
 
+    # "More photos: other-file.jpg, another.jpg" in a .txt file shows those
+    # images on the same page instead of as separate gallery cards.
+    extra_of: dict[str, str] = {}
+    for txt in PHOTOS.rglob("*.txt"):
+        special, _, _ = parse_text_file(txt)
+        for name in re.split(r"[,;]", special.get("more photos", "")):
+            if name.strip():
+                extra_of[(txt.parent / name.strip()).relative_to(PHOTOS).as_posix().lower()] = txt.with_suffix("").relative_to(PHOTOS).as_posix().lower()
+    extras: dict[str, list] = {}
+
     for path in files:
         rel = path.relative_to(PHOTOS)
         info_path = path.with_suffix(".txt")
@@ -227,6 +237,13 @@ def build() -> int:
             print(f"  SKIPPED  {rel}: {e}", file=sys.stderr)
             continue
 
+        image = {"display": f"img/display/{pid}.jpg", "full": full, "w": width, "h": height, "key": rel.with_suffix("").as_posix().lower()}
+        parent = extra_of.get(rel.as_posix().lower())
+        if parent:
+            extras.setdefault(parent, []).append(image)
+            print(f"  ok       {rel}  ({width}x{height}, extra photo for {parent})")
+            continue
+
         # Details from the .txt file win; EXIF fills in what's missing.
         detail_keys = {k.lower() for k, _ in details}
         for k in ("Camera", "Exposure", "ISO", "Focal length"):
@@ -236,6 +253,7 @@ def build() -> int:
         date = special.get("date") or exif.get("date") or ""
         photos.append({
             "id": pid,
+            "key": image["key"],
             "title": special.get("title") or nice_title(path.stem),
             "date": date,
             "category": special.get("category", ""),
@@ -245,14 +263,29 @@ def build() -> int:
             "w": width,
             "h": height,
             "thumb": f"img/thumb/{pid}.jpg",
-            "display": f"img/display/{pid}.jpg",
+            "display": image["display"],
             "full": full,
+            "more": [],
         })
         print(f"  ok       {rel}  ({width}x{height})")
 
-    # Newest first; featured photos go to the top.
-    photos.sort(key=lambda p: p["date"] or "0000", reverse=True)
+    for p in photos:
+        p["more"] = [{k: v for k, v in img.items() if k != "key"} for img in extras.get(p["key"], [])]
+
+    # Sort by date (newest first unless site.txt says "Order: oldest first");
+    # featured photos always go to the top.
+    oldest_first = "oldest" in site.get("order", "").lower()
+    photos.sort(key=lambda p: p["date"] or "0000", reverse=not oldest_first)
     photos.sort(key=lambda p: not p["featured"])
+
+    banner = ""
+    want = slugify(Path(site.get("banner photo", "")).stem) if site.get("banner photo") else ""
+    if want:
+        for p in photos:
+            if want in (p["id"], slugify(p["key"])):
+                banner = p["display"]
+        if not banner:
+            print(f"  note: banner photo '{site['banner photo']}' not found in photos/", file=sys.stderr)
 
     gallery = {
         "site": {
@@ -264,6 +297,9 @@ def build() -> int:
             "instagram": site.get("instagram", ""),
             "astrobin": site.get("astrobin", ""),
             "about": about,
+            "icon": site.get("icon", ""),
+            "banner": banner,
+            "heading": site.get("gallery heading", "Gallery"),
         },
         "photos": photos,
         "built": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
@@ -274,7 +310,7 @@ def build() -> int:
         if f.is_file():
             shutil.copy2(f, OUT / f.name)
     site_url = os.environ.get("SITE_URL", "").rstrip("/")
-    cover = photos[0]["display"] if photos else ""
+    cover = (photos[0]["display"] if photos else "") if any(p["featured"] for p in photos) or not banner else banner
     index = (OUT / "index.html").read_text(encoding="utf-8")
     replacements = {
         "{{TITLE}}": html.escape(site_title),

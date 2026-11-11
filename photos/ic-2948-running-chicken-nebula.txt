@@ -1,0 +1,5 @@
+Title: IC 2948 Running Chicken Nebula
+Date: 2023-03-01 20:05
+Category: Nebula
+
+This is the emission nebula IC 2948, also called the Running Chicken Nebula (not sure it is apparent why in this version). It is 6500 light years away and the dark regions are 'Bob Globules' where stars tend to form. This is data from Telescope.Live taken with the Planewave CDK 24" in Chile using Narrow Band Filters of Oxygen III, Sulfur II, and Hydrogen Alpha. Although I started with the Hubble Palette, I took some real liberty with the coloration, but I think it makes a striking picture. Processing with Pixinsight, Photoshop, Topaz AI and Blur Exterminator. Personally, I think this looks quite dramatic.

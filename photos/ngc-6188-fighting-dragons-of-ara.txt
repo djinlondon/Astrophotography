@@ -1,0 +1,6 @@
+Title: NGC 6188 fighting dragons of Ara
+Date: 2023-02-28 09:33
+Category: Nebula
+More photos: ngc-6188-fighting-dragons-of-ara-2.jpg
+
+NGC 6188 (a.k.a The Rim Nebula or the Fighting Dragons of Ara) is a superb emission nebula located around 4000 light years away. These two views are created using Telescope.Live data in narrowband and processed by me in Pixinsight, Photoshop, and Topaz AI. The first is a wide angle view taken with a Takahashi FSQ 106 in Australia and the second, closer view of one of the dragons, is taken with the Planewave 24" CDK in Chile. A huge amount of data was used in both cases, with a total of around 35 hours of data capture. In total the data spanned 215 separate files and over 5GB of data.

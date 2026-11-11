@@ -1,6 +1,0 @@
-Title: Milky Way Core (Sample)
-Date: 2025-07-12
-Category: Milky Way
-Camera: Mirrorless, 24mm f/1.4
-Exposure: 15 x 20s stacked
-Location: Dark-sky park

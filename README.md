@@ -1,4 +1,6 @@
-# My Astrophotography Gallery
+# DJ's AstroPhotography
+
+Live site: **https://djinlondon.github.io/Astrophotography/**
 
 A free, simple website for sharing astrophotos. It's hosted on **GitHub Pages**.
 Adding a photo works like this: drag it into the `photos` folder on github.com.
@@ -30,8 +32,11 @@ and your equipment and exposure details.
 
    **`https://YOUR-USERNAME.github.io/astrophotography/`**
 
-6. **Make it yours:** open `site.txt` in the repository, click the ✏️ pencil icon, change the
-   title, your name and the About text, then click **Commit changes**.
+6. **Site settings:** open `site.txt` in the repository and click the ✏️ pencil icon.
+   You can change the title, the 🔭 icon, the **banner photo** across the top
+   (the file name of any of your photos), the gallery heading, the order
+   (`oldest first` / `newest first`), and add contact links or an About section.
+   Then click **Commit changes**.
 
 ---
 
@@ -63,13 +68,16 @@ in the core, but I love how much of the outer dust came through.
 ```
 
 - **Title**: if you leave it out, the file name is used (`orion-nebula` → "Orion nebula").
-- **Date**: `YYYY-MM-DD`. Photos are sorted newest first. If you leave it out, the date
+- **Date**: `YYYY-MM-DD` (you can add a time, e.g. `2023-03-20 16:20`). Photos are sorted
+  by date, in the order set in `site.txt`. If you leave it out, the date
   saved in the image by your camera is used, if there is one.
 - **Category**: anything you like, e.g. Nebula, Galaxy, Planet, Moon, Sun, Milky Way,
   Star Cluster. Filter buttons appear automatically.
 - **Featured: yes** pins a photo to the top of the gallery and uses it as the preview
   image when you share your link in a text message or on social media.
 - **Hidden: yes** takes a photo off the site without deleting it.
+- **More photos: other-file.jpg** shows extra images on the same page instead of as separate
+  cards. Separate several with commas. See `heart-and-soul-rgb-and-sho.txt` for an example.
 - **Any other line** shaped like `Something: value` shows up in the details panel.
   For example: `Guiding: 0.6" RMS`, `Moon: 12% waxing`, `Software: PixInsight`.
 - Everything after the first blank line is the description.
@@ -78,7 +86,6 @@ in the core, but I love how much of the outer dust came through.
 - **Change details:** open the `.txt` file, click ✏️, edit, then **Commit changes**.
 - **Remove a photo:** open the image file, click the **⋯** menu → **Delete file**, then **Commit changes**.
   Delete its `.txt` file too.
-- **The sample photos:** delete the three `sample-…` images and their `.txt` files once you've added your own.
 
 ---
 

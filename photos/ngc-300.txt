@@ -1,0 +1,5 @@
+Title: NGC 300
+Date: 2023-02-28 09:33
+Category: Galaxy
+
+This is the galaxy NGC 300. It lies around 6 million lightyears away and is somewhat smaller than the Milky Way at 94,000 lightyears across. The magenta regions are star forming areas. The data was taken from Telescope.live in Chile, using the 70 cm scope. Processing by me in Pixinsight, Photoshop, and slightly tweaked in Topaz AI.
